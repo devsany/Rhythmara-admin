@@ -45,8 +45,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="md:grid md:grid-cols-12">
-          <div className="md:col-span-3">
+        <div className="md:grid md:grid-cols-12 dark:bg-gray-800">
+          <div className="md:col-span-3 border-r-2 dark:border-slate-600">
             <button
               data-drawer-target="sidebar-multi-level-sidebar"
               data-drawer-toggle="sidebar-multi-level-sidebar"
@@ -361,7 +361,7 @@ function App() {
               </div>
             </aside>
           </div>{" "}
-          <div className="md:col-span-7">
+          <div className="md:col-span-7  ">
             <Suspense fallback={<div>Loading...</div>}>
               <Routes>
                 <Route
