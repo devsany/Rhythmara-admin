@@ -10,6 +10,7 @@ const Track = () => {
   const [coverImage, setCoverImage] = useState("");
   const [like, setLike] = useState("");
   const [createdAt, setCreatedAt] = useState("");
+  const [category, setCategory] = useState("");
 
   const [album, setAlbum] = useState([]);
   const [artist, setArtist] = useState([]);
@@ -69,6 +70,7 @@ const Track = () => {
       createdAt: createdAt,
       artist: artistNameKey,
       album: albumNameKey,
+      category: category,
     })
       .then(() => {
         console.log("track (song) to the artist updated successfully!");
@@ -281,6 +283,22 @@ const Track = () => {
               <option value="art">Art</option>
               <option value="film">Film</option>
               <option value="music">Music</option>
+            </select>
+            <label htmlFor="">Select Category</label>
+            <select
+              value={genre}
+              className="block px-2.5     pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              name=""
+              id=""
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="">Select Category</option>
+              {/*  literature, art, film or music  */}
+              <option value="topPlaylist">Top playlist</option>
+              <option value="topCharts">Top Charts</option>
+              <option value="newReleases">New Releases</option>
+              <option value="podcasts">Podcasts</option>
+              <option value="radioStation">Radio Station</option>
             </select>
             {/* <div className="relative">
               <input
