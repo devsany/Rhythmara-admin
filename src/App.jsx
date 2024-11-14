@@ -46,7 +46,7 @@ function App() {
     <>
       <BrowserRouter>
         <div className="md:grid md:grid-cols-12 dark:bg-gray-800">
-          <div className="md:col-span-3 border-r-2 dark:border-slate-600">
+          <div className="md:col-span-3    ">
             <button
               data-drawer-target="sidebar-multi-level-sidebar"
               data-drawer-toggle="sidebar-multi-level-sidebar"

@@ -36,11 +36,24 @@ const Home = () => {
   return (
     <div>
       <div className="md:grid md:grid-cols-6 md:gap-4 m-4">
-        <div className="col-span-2 h-[150px] border font-mono font-semibold text-lg rounded-lg shadow-lg text-slate-700 text-center flex justify-center items-center bg-purple-400">
-          Number of Track
+        <div className="col-span-2 h-[150px]    font-mono m-2 font-semibold text-lg rounded-lg shadow-lg text-slate-700 text-center flex justify-center items-center bg-purple-300 hover:bg-purple-400">
+          <div>
+            <div>Number of Song</div>
+            <div className="text-5xl">{track.length}</div>
+          </div>
         </div>
-        <div className="col-span-2">Number of Artist</div>
-        <div className="col-span-2">Number of Album</div>
+        <div className="col-span-2 h-[150px]   font-mono  m-2 font-semibold text-lg rounded-lg shadow-lg text-slate-700 text-center flex justify-center items-center bg-orange-300 hover:bg-orange-400">
+          <div>
+            <div>Number of Album</div>
+            <div className="text-5xl">{album.length}</div>
+          </div>
+        </div>
+        <div className="col-span-2 h-[150px]   font-mono m-2 font-semibold text-lg rounded-lg shadow-lg text-slate-700 text-center flex justify-center items-center bg-gray-200 hover:bg-gray-400">
+          <div>
+            <div>Number of Artist</div>
+            <div className="text-5xl">{artist.length}</div>
+          </div>
+        </div>
       </div>
     </div>
   );
