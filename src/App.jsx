@@ -1,19 +1,9 @@
 import React, { Suspense, useContext, useState } from "react";
-import {
-  BrowserRouter,
-  NavLink,
-  Route,
-  Router,
-  Routes,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./components/auth/Login";
 import ProtectedRoute from "./components/proctedRoute/ProtectedRoute";
-import {
-  AuthContext,
-  AuthProvider,
-} from "./components/AuthContext/AuthContext";
+import { AuthContext } from "./components/AuthContext/AuthContext";
 import TrackView from "./components/view/TrackView";
 import ArtistView from "./components/view/ArtistView";
 import AlbumView from "./components/view/AlbumView";
@@ -325,7 +315,7 @@ function App() {
                       <span className="ms-3">Setting</span>
                     </NavLink>
                   </li> */}
-                  <li>
+                  {/* <li>
                     <NavLink
                       className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                       to={`/F&Q`}
@@ -345,7 +335,7 @@ function App() {
 
                       <span className="ms-3">F&Q</span>
                     </NavLink>
-                  </li>
+                  </li> */}
                   <li>
                     <div
                       onClick={() => {

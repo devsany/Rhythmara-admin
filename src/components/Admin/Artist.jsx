@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import app from "../firebase/firebaseConfig";
 import { getDatabase, ref, push, set } from "firebase/database";
 
 const Artist = () => {
+  const [animate, setAnimate] = useState(false);
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
   const [profileImage, setProfileImage] = useState("");
@@ -33,13 +34,31 @@ const Artist = () => {
         console.error("error", err.message);
       });
   };
+
+  useEffect(() => {
+    setAnimate(true); // Trigger animation when the component mounts
+  }, []);
   return (
     <div>
       <div>
-        <div>Artists Input List</div>
+        <div className="flex items-center mb-3">
+          {/* Left border */}
+          <div className="h-6 border-l-4 border-orange-400"></div>
+
+          {/* Container for the animated text */}
+          <div className="overflow-hidden">
+            <div
+              className={`transform ${
+                animate ? "animate-revealText" : ""
+              } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
+            >
+              Artist Input Area
+            </div>
+          </div>
+        </div>
         <form action="" onSubmit={handleSubmit}>
           <div className="mb-3">
-            <div class="relative">
+            <div className="relative">
               <input
                 required
                 type="text"
@@ -52,7 +71,7 @@ const Artist = () => {
               />
               <label
                 for="floating_outlined"
-                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
               >
                 Enter Name *
               </label>
@@ -62,7 +81,7 @@ const Artist = () => {
             </div>
           </div>
           <div className="mb-3">
-            <div class="relative">
+            <div className="relative">
               <input
                 required
                 type="text"
@@ -75,7 +94,7 @@ const Artist = () => {
               />
               <label
                 for="floating_outlined"
-                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
               >
                 Enter Bio *
               </label>
@@ -85,7 +104,7 @@ const Artist = () => {
             </div>
           </div>
           <div className="mb-3">
-            <div class="relative">
+            <div className="relative">
               <input
                 required
                 type="text"
@@ -98,7 +117,7 @@ const Artist = () => {
               />
               <label
                 for="floating_outlined"
-                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
               >
                 Enter profile Image URL *
               </label>
@@ -108,7 +127,7 @@ const Artist = () => {
             </div>
           </div>
           <div className="mb-3">
-            <div class="relative">
+            <div className="relative">
               <input
                 required
                 type="date"
@@ -121,7 +140,7 @@ const Artist = () => {
               />
               <label
                 for="floating_outlined"
-                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
               >
                 Enter Created At *
               </label>

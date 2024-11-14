@@ -3,6 +3,8 @@ import app from "../firebase/firebaseConfig";
 import { getDatabase, ref, get, push, set, update } from "firebase/database";
 
 const Track = () => {
+  const [animate, setAnimate] = useState(false);
+
   const [title, setTitle] = useState("");
   const [duration, setDuration] = useState("");
   const [genre, setGenre] = useState("");
@@ -181,12 +183,29 @@ const Track = () => {
   useEffect(() => {
     fetchAlbum();
     fetchArtist();
+    setAnimate(true); // Trigger animation when the component mounts
   }, []);
+
   return (
     <div>
-      <form action="" onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <div class="relative">
+      <div className="flex items-center mb-3">
+        {/* Left border */}
+        <div className="h-6 border-l-4 border-blue-600"></div>
+
+        {/* Container for the animated text */}
+        <div className="overflow-hidden">
+          <div
+            className={`transform ${
+              animate ? "animate-revealText" : ""
+            } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
+          >
+            Track ( Song ) Input Area
+          </div>
+        </div>
+      </div>
+      <form className=" " action="" onSubmit={handleSubmit}>
+        <div className="mb-3 ">
+          <div className="relative mb-3">
             <input
               required
               type="text"
@@ -199,12 +218,12 @@ const Track = () => {
             />
             <label
               for="floating_outlined"
-              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
             >
               Enter Title *
             </label>
           </div>
-          <div class="relative">
+          <div className="relative">
             <input
               required
               type="text"
@@ -217,7 +236,7 @@ const Track = () => {
             />
             <label
               for="floating_outlined"
-              class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
             >
               Enter Duration *
             </label>
@@ -227,10 +246,12 @@ const Track = () => {
           </div>
         </div>
         <div>
-          <div>Select the album name which track belong</div>
+          <div className="ml-1 font-bold text-slate-600">
+            Select the album name which track belong
+          </div>
           <select
             value={albumName}
-            className="block px-2.5    pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            className="block px-2.5 mb-4    pb-2.5 border pt-4 w-full text-sm text-gray-500 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             name=""
             id=""
             onChange={handleAlbumKey}
@@ -248,10 +269,12 @@ const Track = () => {
           </select>
         </div>
         <div>
-          <div>Select the artist name which track belong</div>
+          <div className="font-bold text-slate-600 ml-1">
+            Select the artist name which track belong
+          </div>
           <select
             value={artistName}
-            className="block px-2.5    pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            className="block px-2.5  mb-4  pb-2.5 border pt-4 w-full text-sm text-gray-500 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             name=""
             id=""
             onChange={handleArtistKey}
@@ -272,7 +295,7 @@ const Track = () => {
           <div className="mb-3">
             <select
               value={genre}
-              className="block px-2.5     pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block px-2.5  mb-3   pb-2.5 border pt-4 w-full text-sm text-gray-500 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               name=""
               id=""
               onChange={(e) => setGenre(e.target.value)}
@@ -284,15 +307,17 @@ const Track = () => {
               <option value="film">Film</option>
               <option value="music">Music</option>
             </select>
-            <label htmlFor="">Select Category</label>
+            <label htmlFor="" className="font-bold text-slate-600 ml-1">
+              Select Category
+            </label>
             <select
               value={genre}
-              className="block px-2.5     pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block px-2.5   mb-4   pb-2.5 border pt-4 w-full text-sm text-gray-500 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               name=""
               id=""
               onChange={(e) => setCategory(e.target.value)}
             >
-              <option value="">Select Category</option>
+              <option value="">Select option</option>
               {/*  literature, art, film or music  */}
               <option value="topPlaylist">Top playlist</option>
               <option value="topCharts">Top Charts</option>
@@ -323,7 +348,7 @@ const Track = () => {
             </div>
           </div>
         </div>
-        <div class="relative">
+        <div className="relative">
           <input
             required
             type="text"
@@ -331,17 +356,17 @@ const Track = () => {
             name="audioFile"
             value={audioFile}
             onChange={(e) => setAudioFile(e.target.value)}
-            className="block px-2.5 bg-green-50   pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            className="block px-2.5 mb-4 bg-green-50   pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
           />
           <label
             for="floating_outlined"
-            className="absolute text-sm text-gray-500 bg-green-50 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0]   dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+            className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
           >
             Enter Audio file url*
           </label>
         </div>
-        <div class="relative">
+        <div className="relative">
           <input
             required
             type="text"
@@ -349,17 +374,17 @@ const Track = () => {
             name="coverImage"
             value={coverImage}
             onChange={(e) => setCoverImage(e.target.value)}
-            className="block px-2.5    pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            className="block px-2.5 mb-4    pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
           />
           <label
             for="floating_outlined"
-            className="absolute text-sm text-gray-500  dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0]   dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+            className="absolute text-sm bg-white text-gray-500  dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0]   dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
           >
             Enter Cover image url*
           </label>
         </div>
-        <div class="relative">
+        <div className="relative">
           <input
             required
             type="date"
@@ -372,13 +397,18 @@ const Track = () => {
           />
           <label
             for="floating_outlined"
-            className="absolute text-sm text-gray-500  dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0]   dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+            className="absolute text-sm bg-white text-gray-500  dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0]   dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
           >
             Enter Created At
           </label>
         </div>
-        <div>
-          <button type="submit">Submit</button>
+        <div className="mb-3">
+          <button
+            className="text-white mt-4 float-right mb-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2   dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            type="submit"
+          >
+            Submit
+          </button>
         </div>
       </form>
     </div>

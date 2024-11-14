@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import app from "../firebase/firebaseConfig";
-import { getDatabase, get, ref, push, set, update } from "firebase/database";
+import { getDatabase, get, ref, push, set } from "firebase/database";
 
 const Album = () => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    setAnimate(true); // Trigger animation when the component mounts
+  }, []);
   const [artist, setArtist] = useState([]);
   const [title, setTitle] = useState("");
   const [releaseDate, setReleaseDate] = useState("");
   const [coverImageUrl, setCoverImageUrl] = useState("");
   const [genre, setGenre] = useState("");
-  const [createdAt, setCreatedAt] = useState("");
-  const [updatedAt, setUpdatedAt] = useState(""); // make the 'UpdateArtist' component separatly.
+  const [createdAt, setCreatedAt] = useState(""); // make the 'UpdateArtist' component separatly.
   const [artistName, setArtistName] = useState("");
   const [artiseKey, setArtiseKey] = useState("");
   console.log(artiseKey);
@@ -94,7 +98,21 @@ const Album = () => {
   }, []);
   return (
     <div>
-      Albem
+      <div className="flex items-center mb-3">
+        {/* Left border */}
+        <div className="h-6 border-l-4 border-green-400"></div>
+
+        {/* Container for the animated text */}
+        <div className="overflow-hidden">
+          <div
+            className={`transform ${
+              animate ? "animate-revealText" : ""
+            } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
+          >
+            Albam Input Area
+          </div>
+        </div>
+      </div>
       <div>
         <form action="" onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -110,7 +128,7 @@ const Album = () => {
                 placeholder=" "
               />
               <label
-                for="floating_outlined"
+                // for="floating_outlined"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
               >
                 Enter Title of Album *
@@ -135,7 +153,7 @@ const Album = () => {
                 placeholder=" "
               />
               <label
-                for="floating_outlined"
+                // for="floating_outlined"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
               >
                 Enter Release date of Album *
@@ -160,7 +178,7 @@ const Album = () => {
                 placeholder=" "
               />
               <label
-                for="floating_outlined"
+                // for="floating_outlined"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
               >
                 Enter Cover Image URL of Album *
@@ -173,7 +191,12 @@ const Album = () => {
 
           {/* list of artist */}
 
-          <select name="" id="" onChange={handleArtistName}>
+          <select
+            name=""
+            id=""
+            className="block px-2.5 mb-3   pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            onChange={handleArtistName}
+          >
             <option value="">Select the Artist Name</option>
             {artist.map((item, index) => {
               return (
@@ -210,7 +233,7 @@ const Album = () => {
                 placeholder=" "
               />
               <label
-                for="floating_outlined"
+                // for="floating_outlined"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
               >
                 Enter Genre of Album *
@@ -235,7 +258,7 @@ const Album = () => {
                 placeholder=" "
               />
               <label
-                for="floating_outlined"
+                // for="floating_outlined"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
               >
                 Enter created at *
@@ -259,7 +282,7 @@ const Album = () => {
                 placeholder=" "
               />
               <label
-                for="floating_outlined"
+                // for="floating_outlined"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
               >
                 Enter Enter Updated at date of Album *
