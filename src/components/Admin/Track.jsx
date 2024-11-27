@@ -307,14 +307,14 @@ const Track = () => {
               <option value="film">Film</option>
               <option value="music">Music</option>
             </select>
-            <label htmlFor="" className="font-bold text-slate-600 ml-1">
+            <label htmlFor="category" className="font-bold text-slate-600 ml-1">
               Select Category
             </label>
             <select
-              value={genre}
+              value={category}
               className="block px-2.5   mb-4   pb-2.5 border pt-4 w-full text-sm text-gray-500 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               name=""
-              id=""
+              id="category"
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="">Select option</option>
