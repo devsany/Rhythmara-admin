@@ -26,7 +26,7 @@ const ArtistView = () => {
       setLoading(false);
     });
   };
-  console.log(data);
+  // console.log(data);
   const deleteItem = (key) => {
     if (key) {
       // Ensure a teacher has been fetched
@@ -45,7 +45,7 @@ const ArtistView = () => {
       alert("No album selected for deletion.");
     }
   };
-  console.log(data);
+  // console.log(data);
   useEffect(() => {
     setAnimate(true); // Trigger animation when the component mounts
     fetchPrimaryData();
@@ -64,7 +64,7 @@ const ArtistView = () => {
                 animate ? "animate-revealText" : ""
               } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
             >
-              Track or Song List
+              Artist List
             </div>
           </div>
         </div>

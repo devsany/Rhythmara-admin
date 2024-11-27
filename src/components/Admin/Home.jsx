@@ -27,9 +27,7 @@ const Home = () => {
       alert("artist data do not exist do not exist");
     }
   };
-  console.log(track);
-  console.log(album);
-  console.log(artist);
+
   useEffect(() => {
     fetchPrimaryData();
   }, []);

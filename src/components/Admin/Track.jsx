@@ -102,7 +102,7 @@ const Track = () => {
         console.error("Error updating like count:", error);
       });
 
-    console.log("data clicked form");
+    // console.log("data clicked form");
     //firebase setup
     const newDocm = push(ref(db, "track"));
     set(newDocm, {
@@ -176,10 +176,10 @@ const Track = () => {
       console.log(error);
     }
   };
-  console.log("album", album);
-  console.log("artist", artist);
-  console.log("artist Name key", artistNameKey);
-  console.log("album name key", albumNameKey);
+  // console.log("album", album);
+  // console.log("artist", artist);
+  // console.log("artist Name key", artistNameKey);
+  // console.log("album name key", albumNameKey);
   useEffect(() => {
     fetchAlbum();
     fetchArtist();

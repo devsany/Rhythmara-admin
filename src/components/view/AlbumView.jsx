@@ -26,7 +26,7 @@ const AlbumView = () => {
       setLoading(false);
     });
   };
-  console.log(data);
+  // console.log(data);
   const deleteItem = (key) => {
     if (key) {
       // Ensure a teacher has been fetched
@@ -45,7 +45,7 @@ const AlbumView = () => {
       alert("No album selected for deletion.");
     }
   };
-  console.log(data);
+  // console.log(data);
   useEffect(() => {
     setAnimate(true); // Trigger animation when the component mounts
     fetchPrimaryData();
@@ -79,7 +79,7 @@ const AlbumView = () => {
                     {data.map((item, index) => {
                       return (
                         <>
-                          <div className="mt-3 " key={index}>
+                          <div key={index} className="mt-3 ">
                             <div className="flex items-center ">
                               <div className="w-2 h-2 rounded-full mr-3 bg-gray-400"></div>
                               <div className="font-mono font-semibold text-lg text-slate-700">

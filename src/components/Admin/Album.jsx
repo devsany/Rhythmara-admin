@@ -16,7 +16,7 @@ const Album = () => {
   const [createdAt, setCreatedAt] = useState(""); // make the 'UpdateArtist' component separatly.
   const [artistName, setArtistName] = useState("");
   const [artiseKey, setArtiseKey] = useState("");
-  console.log(artiseKey);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("data clicked form");
@@ -92,7 +92,7 @@ const Album = () => {
       }
     }
   };
-  console.log(artist);
+
   useEffect(() => {
     fetchArtist();
   }, []);
