@@ -49,6 +49,12 @@ const Album = () => {
     })
       .then(() => {
         alert("artist data saved");
+        setTitle("");
+        setReleaseDate("");
+        setCoverImageUrl("");
+        setGenre("");
+        setCreatedAt("");
+        setArtiseKey("");
         // window.location.reload();
         // setAnswers({});
         // nav("/login");

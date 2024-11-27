@@ -46,6 +46,25 @@ const AlbumView = () => {
     }
   };
   // console.log(data);
+  // Set up state for pagination
+  const itemsPerPage = 4; // Number of items to display per page
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Calculate the index of the last item on the current page
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+  // Slice the data to only show items for the current page
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  // Handle page change
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   useEffect(() => {
     setAnimate(true); // Trigger animation when the component mounts
     fetchPrimaryData();
@@ -53,30 +72,53 @@ const AlbumView = () => {
   return (
     <div>
       <div>
-        <div className="flex items-center mb-3">
-          {/* Left border */}
-          <div className="h-6 border-l-4 border-orange-400"></div>
+        <div className="flex justify-between">
+          <div className="flex items-center mb-3">
+            {/* Left border */}
+            <div className="h-6 border-l-4 border-orange-400"></div>
 
-          {/* Container for the animated text */}
-          <div className="overflow-hidden">
-            <div
-              className={`transform ${
-                animate ? "animate-revealText" : ""
-              } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
-            >
-              Album List
+            {/* Container for the animated text */}
+            <div className="overflow-hidden">
+              <div
+                className={`transform ${
+                  animate ? "animate-revealText" : ""
+                } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
+              >
+                Album List
+              </div>
             </div>
+          </div>
+          <div>
+            <button
+              className="  items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+
+            <span className="text-sm ml-3 font-medium text-gray-500">
+              {currentPage} / {totalPages}
+            </span>
+
+            <button
+              className="items-center justify-center px-3 h-8 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
           </div>
         </div>
         <div className="h-screen border p-4 rounded-md">
-          {data ? (
+          {currentItems ? (
             <>
               <div>
-                {data.length === 0 ? (
+                {currentItems.length === 0 ? (
                   <>Data is loading...</>
                 ) : (
                   <>
-                    {data.map((item, index) => {
+                    {currentItems.map((item, index) => {
                       return (
                         <>
                           <div key={index} className="mt-3 ">

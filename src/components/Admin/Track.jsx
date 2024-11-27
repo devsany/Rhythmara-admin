@@ -118,9 +118,6 @@ const Track = () => {
     })
       .then(() => {
         alert("artist data saved");
-        // window.location.reload();
-        // setAnswers({});
-        // nav("/login");
         setArtistName("");
         setAlbumName("");
         setArtistNameKey("");

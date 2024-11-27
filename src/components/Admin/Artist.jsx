@@ -26,6 +26,10 @@ const Artist = () => {
     })
       .then(() => {
         alert("artist data saved");
+        setName("");
+        setBio("");
+        setProfileImage("");
+        setCreatedAt("");
         // window.location.reload();
         // setAnswers({});
         // nav("/login");
