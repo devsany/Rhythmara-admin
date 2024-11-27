@@ -31,8 +31,8 @@ const Home = () => {
   useEffect(() => {
     fetchPrimaryData();
   }, []);
-  return (
-    <div>
+  return (  
+    <div className="h-screen">
       <div className="md:grid md:grid-cols-6 md:gap-4 m-4">
         <div className="col-span-2 h-[150px]    font-mono m-2 font-semibold text-lg rounded-lg shadow-lg text-slate-700 text-center flex justify-center items-center bg-purple-300 hover:bg-purple-400">
           <div>

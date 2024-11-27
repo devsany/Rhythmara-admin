@@ -43,7 +43,7 @@ const Artist = () => {
     setAnimate(true); // Trigger animation when the component mounts
   }, []);
   return (
-    <div>
+    <div className="h-screen">
       <div>
         <div className="flex items-center mb-3">
           {/* Left border */}
@@ -54,7 +54,7 @@ const Artist = () => {
             <div
               className={`transform ${
                 animate ? "animate-revealText" : ""
-              } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
+              } opacity-0 font-semibold font-mono dark:text-white text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
             >
               Artist Input Area
             </div>

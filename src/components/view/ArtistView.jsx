@@ -84,7 +84,7 @@ const ArtistView = () => {
               <div
                 className={`transform ${
                   animate ? "animate-revealText" : ""
-                } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
+                } opacity-0 font-semibold font-mono dark:text-white text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
               >
                 Artist List
               </div>
@@ -92,19 +92,19 @@ const ArtistView = () => {
           </div>
           <div>
             <button
-              className="  items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="  items-center justify-center px-3 h-8 dark:text-white text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
             >
               Previous
             </button>
 
-            <span className="text-sm ml-3 font-medium text-gray-500">
+            <span className="text-sm ml-3 font-medium dark:text-white  text-gray-500">
               {currentPage} / {totalPages}
             </span>
 
             <button
-              className="items-center justify-center px-3 h-8 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="items-center justify-center px-3 h-8 ms-3 dark:text-white text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
             >
@@ -126,11 +126,11 @@ const ArtistView = () => {
                           <div className="mt-3 " key={index}>
                             <div className="flex items-center ">
                               <div className="w-2 h-2 rounded-full mr-3 bg-gray-400"></div>
-                              <div className="font-mono font-semibold text-lg text-slate-600">
+                              <div className="font-mono font-semibold dark:text-white text-lg text-slate-600">
                                 {item.title}
                               </div>
                             </div>
-                            <div className="border-l-[1px] text-slate-600 text-sm ml-1 pl-2 border-gray-500">
+                            <div className="border-l-[1px]   text-slate-600 text-sm ml-1 pl-2 border-gray-500">
                               <div className="flex items-center">
                                 <div>
                                   <img
@@ -151,7 +151,7 @@ const ArtistView = () => {
                                 </div>
                               </div>
                               <div>{item.releaseDate}</div>
-                              <div className="text-slate-500 text-xs m-2">
+                              <div className="text-slate-500 dark:text-white text-xs m-2">
                                 {item.name}
                                 <div>{item.bio}</div>
                               </div>

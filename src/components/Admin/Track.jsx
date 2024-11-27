@@ -184,8 +184,8 @@ const Track = () => {
   }, []);
 
   return (
-    <div>
-      <div className="flex items-center mb-3">
+    <div className="">
+      <div className="flex  items-center mb-3">
         {/* Left border */}
         <div className="h-6 border-l-4 border-blue-600"></div>
 
@@ -194,7 +194,7 @@ const Track = () => {
           <div
             className={`transform ${
               animate ? "animate-revealText" : ""
-            } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
+            } opacity-0 font-semibold font-mono dark:text-white text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
           >
             Track ( Song ) Input Area
           </div>
@@ -243,7 +243,7 @@ const Track = () => {
           </div>
         </div>
         <div>
-          <div className="ml-1 font-bold text-slate-600">
+          <div className="ml-1 font-bold dark:text-white text-slate-600">
             Select the album name which track belong
           </div>
           <select
@@ -266,7 +266,7 @@ const Track = () => {
           </select>
         </div>
         <div>
-          <div className="font-bold text-slate-600 ml-1">
+          <div className="font-bold dark:text-white text-slate-600 ml-1">
             Select the artist name which track belong
           </div>
           <select
@@ -304,7 +304,10 @@ const Track = () => {
               <option value="film">Film</option>
               <option value="music">Music</option>
             </select>
-            <label htmlFor="category" className="font-bold text-slate-600 ml-1">
+            <label
+              htmlFor="category"
+              className="font-bold dark:text-white text-slate-600 ml-1"
+            >
               Select Category
             </label>
             <select

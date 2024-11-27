@@ -47,7 +47,7 @@ const AlbumView = () => {
   };
   // console.log(data);
   // Set up state for pagination
-  const itemsPerPage = 4; // Number of items to display per page
+  const itemsPerPage = 5; // Number of items to display per page
   const [currentPage, setCurrentPage] = useState(1);
 
   // Calculate the index of the last item on the current page
@@ -82,7 +82,7 @@ const AlbumView = () => {
               <div
                 className={`transform ${
                   animate ? "animate-revealText" : ""
-                } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
+                } opacity-0 font-semibold font-mono  dark:text-white text-slate-700 sm:text-lg md:text-2xl pl-2`} // Slight padding-left to adjust spacing
               >
                 Album List
               </div>
@@ -90,19 +90,19 @@ const AlbumView = () => {
           </div>
           <div>
             <button
-              className="  items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="  items-center justify-center px-3 h-8 dark:text-white text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
             >
               Previous
             </button>
 
-            <span className="text-sm ml-3 font-medium text-gray-500">
+            <span className="text-sm ml-3 font-medium dark:text-white text-gray-500">
               {currentPage} / {totalPages}
             </span>
 
             <button
-              className="items-center justify-center px-3 h-8 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="items-center justify-center px-3 h-8 dark:text-white ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
             >
@@ -124,13 +124,17 @@ const AlbumView = () => {
                           <div key={index} className="mt-3 ">
                             <div className="flex items-center ">
                               <div className="w-2 h-2 rounded-full mr-3 bg-gray-400"></div>
-                              <div className="font-mono font-semibold text-lg text-slate-700">
+                              <div className="font-mono font-semibold text-lg dark:text-white text-slate-700">
                                 {item.createdAt}
                               </div>
                             </div>
-                            <div className="border-l-[1px] text-slate-600 text-sm ml-1 pl-2 border-gray-500">
-                              <div>{item.gerne}</div>
-                              <div>{item.releaseDate}</div>
+                            <div className="border-l-[1px]   text-slate-600 text-sm ml-1 pl-2 border-gray-500">
+                              <div className="dark:text-white text-sm">
+                                {item.gerne}
+                              </div>
+                              <div className="dark:text-white text-sm">
+                                {item.releaseDate}
+                              </div>
                               <div>
                                 <div className="flex">
                                   <div className="bg-blue-50 w-40 p-1 rounded-md pl-2">

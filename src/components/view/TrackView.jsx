@@ -71,7 +71,7 @@ const TrackView = () => {
     fetchPrimaryData();
   }, []);
   return (
-    <div>
+    <div className="">
       <div>
         <div className="flex   justify-between">
           <div className="flex   items-center mb-3">
@@ -84,7 +84,7 @@ const TrackView = () => {
                 <div
                   className={`transform ${
                     animate ? "animate-revealText" : ""
-                  } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
+                  } opacity-0 font-semibold font-mono dark:text-white text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
                 >
                   Track or Song List
                 </div>
@@ -113,7 +113,7 @@ const TrackView = () => {
             </button>
           </div>
         </div>
-        <div className="h-screen overflow-y-scroll border p-4 rounded-md">
+        <div className="h-screen overflow-y-scroll dark:text-white border p-4 rounded-md">
           {currentItems ? (
             <>
               <div>
@@ -127,11 +127,11 @@ const TrackView = () => {
                           <div key={index} className="mt-3 " key={index}>
                             <div className="flex items-center ">
                               <div className="w-2 h-2 rounded-full mr-3 bg-gray-400"></div>
-                              <div className="font-mono font-semibold text-lg text-slate-600">
+                              <div className="font-mono dark:text-white font-semibold text-lg text-slate-600">
                                 {item.title}
                               </div>
                             </div>
-                            <div className="border-l-[1px] text-slate-600 text-sm ml-1 pl-2 border-gray-500">
+                            <div className="border-l-[1px]   text-slate-600 text-sm ml-1 pl-2 border-gray-500">
                               <div className="flex items-center">
                                 <div>
                                   <img
@@ -152,7 +152,7 @@ const TrackView = () => {
                                 </div>
                               </div>
                               <div>{item.releaseDate}</div>
-                              <div className="text-slate-500 text-xs m-2">
+                              <div className="text-slate-500 dark:text-white text-xs m-2">
                                 Created At - {item.createdAt}
                               </div>
 

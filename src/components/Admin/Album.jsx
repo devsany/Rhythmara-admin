@@ -103,17 +103,17 @@ const Album = () => {
     fetchArtist();
   }, []);
   return (
-    <div>
-      <div className="flex items-center mb-3">
+    <div className="h-screen">
+      <div className="flex items-center  mb-3">
         {/* Left border */}
-        <div className="h-6 border-l-4 border-green-400"></div>
+        <div className="h-6 border-l-4 dark:text-white border-green-400"></div>
 
         {/* Container for the animated text */}
         <div className="overflow-hidden">
           <div
             className={`transform ${
               animate ? "animate-revealText" : ""
-            } opacity-0 font-semibold font-mono text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
+            } opacity-0 font-semibold font-mono dark:text-white text-slate-700 text-2xl pl-2`} // Slight padding-left to adjust spacing
           >
             Albam Input Area
           </div>
@@ -130,12 +130,12 @@ const Album = () => {
                 name="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="block px-2.5    pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                className="block px-2.5    pb-2.5 border pt-4 w-full dark:text-white text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
               />
               <label
                 // for="floating_outlined"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+                className="absolute text-sm   text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
               >
                 Enter Title of Album *
               </label>
