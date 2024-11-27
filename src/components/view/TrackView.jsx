@@ -45,7 +45,6 @@ const TrackView = () => {
       alert("No album selected for deletion.");
     }
   };
-  console.log(data);
   useEffect(() => {
     setAnimate(true); // Trigger animation when the component mounts
     fetchPrimaryData();
