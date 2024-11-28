@@ -200,7 +200,7 @@ const Album = () => {
           <select
             name=""
             id=""
-            className="block px-2.5 mb-3   pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            className="block px-2.5 mb-3 dark:text-slate-900  pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             onChange={handleArtistName}
           >
             <option value="">Select the Artist Name</option>
@@ -215,7 +215,7 @@ const Album = () => {
           {/* genre */}
           <div className="mb-3">
             <select
-              className="block px-2.5    pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block px-2.5 dark:text-slate-900   pb-2.5 border pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none   dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               name=""
               id=""
               onChange={(e) => setGenre(e.target.value)}
