@@ -94,6 +94,7 @@ const Track = () => {
       createdAt: createdAt,
       artist: artistNameKey,
       album: albumNameKey,
+      category: category,
     })
       .then(() => {
         console.log("track (song) to the artist updated successfully!");
@@ -115,6 +116,7 @@ const Track = () => {
       createdAt: createdAt,
       artist: artistNameKey,
       album: albumNameKey,
+      category: category,
     })
       .then(() => {
         alert("artist data saved");
